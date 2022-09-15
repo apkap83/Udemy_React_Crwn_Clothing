@@ -6,6 +6,7 @@ const addCartItem = (cartItems, productToAdd) => {
     (cartItem) => cartItem.id === productToAdd.id
   );
 
+  // If Cart Item already exists -> increase quantity
   if (existingCartItem) {
     return cartItems.map((cartItem) =>
       cartItem.id === productToAdd.id
@@ -13,7 +14,7 @@ const addCartItem = (cartItems, productToAdd) => {
         : cartItem
     );
   }
-
+  // If Cart Item does not exist then new Obj with quantity = 1
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
@@ -28,7 +29,7 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
     return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
   }
 
-  // return back cartitems with matching cart item with reduced quantity
+  // return back cart items with matching cart item with reduced quantity
   return cartItems.map((cartItem) =>
     cartItem.id === cartItemToRemove.id
       ? { ...cartItem, quantity: cartItem.quantity - 1 }

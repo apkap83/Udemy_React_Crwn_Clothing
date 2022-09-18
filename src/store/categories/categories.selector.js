@@ -33,6 +33,12 @@ export const selectCategoriesMap_OLD = (state) => {
     return acc;
   }, {});
 };
+
+export const selectCategoriesIsLoading = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.isLoading
+);
+
 /* Original Example End */
 
 // export const selectCategories = (state) => {

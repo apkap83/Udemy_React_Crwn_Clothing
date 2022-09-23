@@ -5,7 +5,7 @@ import logger from "redux-logger";
 import storage from "redux-persist/lib/storage";
 
 import thunk from "redux-thunk";
-import { loggerMiddleware } from "./middleware/logger";
+// import { loggerMiddleware } from "./middleware/logger";
 
 import { rootReducer } from "./root-reducer";
 

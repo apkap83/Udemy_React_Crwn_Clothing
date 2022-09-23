@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import {
   createUserDocumentFromAuth,
   onAuthStateChangedListener,
-  getCategoriesAndDocuments,
+  // getCategoriesAndDocuments,
 } from "./utils/firebase/firebase.utils";
 
 import Home from "./routes/home/home.component";
@@ -14,7 +14,7 @@ import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component";
 
 import { setCurrentUser } from "./store/user/user.action";
-import { setCategories } from "./store/categories/categories.action";
+// import { setCategories } from "./store/categories/categories.action";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const App = () => {
     });
 
     return unsubscribe;
-  }, []);
+  }, [onAuthStateChangedListener]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Routes>

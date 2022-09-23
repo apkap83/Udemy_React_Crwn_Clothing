@@ -12,10 +12,11 @@ import {
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
   signInWithGoogleRedirect,
-  getGoogleRedirectResult,
+  // getGoogleRedirectResult,
 } from "../../utils/firebase/firebase.utils";
 
 import "./sign-in-form.styles.scss";
+import { ButtonsContainer } from "./sign-in-form.styles";
 
 const defaultFormFields = {
   email: "",
@@ -95,7 +96,7 @@ export const SignInForm = () => {
           value={password}
           onChange={handleChange}
         />
-        <div className="buttons-container">
+        <ButtonsContainer>
           <Button type="submit">Sign In</Button>
           <Button
             type="button"
@@ -104,14 +105,14 @@ export const SignInForm = () => {
           >
             Google Sign in Popup
           </Button>
-          <Button
+          {/* <Button
             type="button"
             onClick={signInWithGoogleRedirect}
             buttonType={BUTTON_TYPE_CLASSES.google}
           >
             Google Sign in Redirect
-          </Button>
-        </div>
+          </Button> */}
+        </ButtonsContainer>
       </form>
     </div>
   );

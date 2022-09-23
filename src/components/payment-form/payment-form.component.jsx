@@ -14,6 +14,7 @@ import {
   FormContainer,
   PaymentButton,
 } from "./payment-form.styles";
+import { ButtonSpinner } from "../button/button.styles";
 
 const PaymentForm = () => {
   let navigate = useNavigate();
@@ -63,13 +64,6 @@ const PaymentForm = () => {
         navigate("/");
       }
     }
-
-    // const {
-    //   paymentIntent: { client_secret },
-    // } = response.paymentIntend;
-
-    // console.log(client_secret);
-    // console.log(response);
   };
 
   return (

@@ -3,13 +3,13 @@ import { initializeApp } from "firebase/app";
 import {
   GoogleAuthProvider,
   getAuth,
-  signInWithRedirect,
-  signInWithPopup,
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  signInWithRedirect,
+  // getRedirectResult,
+  createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  getRedirectResult,
 } from "firebase/auth";
 
 import {
@@ -37,7 +37,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({
@@ -131,7 +131,6 @@ export const createUserDocumentFromAuth = async (
 
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
-
     const createdAt = new Date();
 
     try {

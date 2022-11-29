@@ -37,6 +37,17 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
   );
 };
 
+export const CartContext = createContext({
+  isCartOpen: false,
+  cartItems: [],
+  cartCount: 0,
+  cartTotal: 0,
+  setIsCartOpen: () => {},
+  addItemToCart: () => {},
+  removeItemFromCart: () => {},
+  clearItemFromCart: () => {},
+});
+
 const CART_ACTION_TYPES = {
   SET_IS_CART_OPEN: "SET_IS_CART_OPEN",
   SET_CART_ITEMS: "SET_CART_ITEMS",
@@ -53,17 +64,6 @@ const INITIAL_STATE = {
 
 const clearCartItem = (cartItems, cartItemToClear) =>
   cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
-
-export const CartContext = createContext({
-  isCartOpen: false,
-  cartItems: [],
-  cartCount: 0,
-  cartTotal: 0,
-  setIsCartOpen: () => {},
-  addItemToCart: () => {},
-  removeItemFromCart: () => {},
-  clearItemFromCart: () => {},
-});
 
 const cartReducer = (state, action) => {
   const { type, payload } = action;
